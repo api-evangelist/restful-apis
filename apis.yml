@@ -1,0 +1,16 @@
+name: RESTful APIs
+description: Representational State Transfer (REST) is an architectural style for
+  designing networked applications. RESTful APIs use HTTP methods to perform CRUD
+  operations and communicate between client and server using stateless, cacheable
+  requests with standard conventions.
+url: https://restfulapi.net/
+tags:
+- API
+- REST
+- Web Services
+- HTTP
+- Architecture
+created: '2025'
+modified: '2025'
+apis: []
+common: []
