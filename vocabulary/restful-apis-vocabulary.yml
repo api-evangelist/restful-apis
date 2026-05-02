@@ -1,0 +1,94 @@
+vocabulary:
+  name: RESTful APIs Vocabulary
+  description: Normative vocabulary for RESTful API design, architecture, and standards
+  version: 1.0.0
+  created: '2026-05-02'
+  modified: '2026-05-02'
+  tags:
+    - Architecture
+    - HTTP
+    - REST
+    - Standards
+
+terms:
+  - term: REST
+    definition: Representational State Transfer — an architectural style for distributed hypermedia systems defined by Roy Fielding in his 2000 dissertation. REST defines six constraints that make a system RESTful.
+    category: Architecture
+    relatedTerms:
+      - Resource
+      - Uniform Interface
+      - Stateless
+
+  - term: Resource
+    definition: The fundamental abstraction of REST. A resource is any named concept — a document, an image, a collection of other resources — identified by a URI.
+    category: Core Concept
+    relatedTerms:
+      - URI
+      - Representation
+
+  - term: Representation
+    definition: The state of a resource at a given point in time, transferred between client and server. Common formats include JSON, XML, and HTML.
+    category: Core Concept
+    relatedTerms:
+      - Resource
+      - Media Type
+
+  - term: URI
+    definition: Uniform Resource Identifier — the unique address used to identify a REST resource (e.g., /users/123).
+    category: Core Concept
+    relatedTerms:
+      - Resource
+
+  - term: Stateless
+    definition: A REST constraint requiring that each request contain all information needed to process it. The server holds no client session state between requests.
+    category: Constraint
+
+  - term: Uniform Interface
+    definition: The central REST constraint requiring consistent resource identification, resource manipulation through representations, self-descriptive messages, and hypermedia as the engine of application state (HATEOAS).
+    category: Constraint
+    relatedTerms:
+      - HATEOAS
+
+  - term: HATEOAS
+    definition: Hypermedia As The Engine Of Application State — a REST constraint requiring that API responses include links to related actions and resources, enabling discoverability.
+    category: Constraint
+
+  - term: Idempotent
+    definition: An operation that produces the same result whether executed once or multiple times. GET, PUT, and DELETE are idempotent; POST is not.
+    category: Property
+
+  - term: Safe Method
+    definition: An HTTP method that does not modify server state. GET and HEAD are safe. Safe methods are always idempotent.
+    category: HTTP
+
+  - term: Content Negotiation
+    definition: The mechanism by which client and server agree on the representation format for a resource, using Accept and Content-Type headers.
+    category: HTTP
+
+  - term: RFC 7231
+    definition: The RFC defining HTTP/1.1 semantics and content, including HTTP methods, status codes, and header fields.
+    category: Standard
+
+  - term: OpenAPI Specification
+    definition: The industry-standard, language-agnostic interface description format for REST APIs, formerly known as Swagger. Enables documentation, code generation, and validation.
+    category: Standard
+
+  - term: Richardson Maturity Model
+    definition: A model for grading REST API maturity levels from Level 0 (plain HTTP) to Level 3 (HATEOAS), described by Leonard Richardson.
+    category: Model
+
+  - term: Pagination
+    definition: The practice of returning large result sets in pages to improve performance. Common patterns include offset/limit, cursor-based, and page/size.
+    category: Pattern
+
+  - term: Rate Limiting
+    definition: A server-side mechanism to limit the number of API requests from a client over a time period, typically communicated via X-RateLimit headers.
+    category: Feature
+
+  - term: Versioning
+    definition: Strategy for managing API changes over time. Common approaches include URI versioning (/v1/), header versioning, and media type versioning.
+    category: Pattern
+
+  - term: JSON API
+    definition: A specification for building APIs in JSON that standardizes resource representation, relationships, and error formats.
+    category: Standard

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/restful-apis/refs/heads/main/json-schema/restful-apis-resource-schema.json",
+  "title": "RESTful API Resource",
+  "description": "Represents a RESTful API resource following REST architectural constraints including resource identification, representation, and CRUD operations via HTTP methods.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": ["string", "integer"],
+      "description": "Unique identifier for the resource."
+    },
+    "href": {
+      "type": "string",
+      "format": "uri",
+      "description": "Self-referencing URI for the resource (HATEOAS)."
+    },
+    "type": {
+      "type": "string",
+      "description": "Resource type name (e.g., 'user', 'product', 'order')."
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Resource-specific attributes as key-value pairs.",
+      "additionalProperties": true
+    },
+    "relationships": {
+      "type": "object",
+      "description": "Related resources linked via URIs.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "href": {"type": "string", "format": "uri"},
+          "type": {"type": "string"}
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "description": "Metadata about the resource (pagination, versioning, etc.).",
+      "properties": {
+        "createdAt": {"type": "string", "format": "date-time"},
+        "updatedAt": {"type": "string", "format": "date-time"},
+        "version": {"type": "integer"}
+      }
+    }
+  },
+  "required": ["id", "type"]
+}

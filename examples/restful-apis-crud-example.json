@@ -1,0 +1,121 @@
+{
+  "description": "Example demonstrating standard RESTful CRUD operations with proper HTTP methods, status codes, and resource representation",
+  "resource": "Product",
+  "baseUrl": "https://api.example.com/v1",
+  "operations": [
+    {
+      "operation": "Create",
+      "request": {
+        "method": "POST",
+        "url": "/products",
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer {{token}}"
+        },
+        "body": {
+          "name": "Wireless Headphones",
+          "price": 79.99,
+          "category": "Electronics",
+          "sku": "WH-001"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json",
+          "Location": "/products/prod_abc123"
+        },
+        "body": {
+          "id": "prod_abc123",
+          "name": "Wireless Headphones",
+          "price": 79.99,
+          "category": "Electronics",
+          "sku": "WH-001",
+          "href": "/products/prod_abc123",
+          "createdAt": "2026-05-02T10:00:00Z"
+        }
+      }
+    },
+    {
+      "operation": "Read",
+      "request": {
+        "method": "GET",
+        "url": "/products/prod_abc123",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "prod_abc123",
+          "name": "Wireless Headphones",
+          "price": 79.99,
+          "href": "/products/prod_abc123"
+        }
+      }
+    },
+    {
+      "operation": "List",
+      "request": {
+        "method": "GET",
+        "url": "/products?category=Electronics&page=1&limit=20",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "data": [
+            {"id": "prod_abc123", "name": "Wireless Headphones", "price": 79.99}
+          ],
+          "meta": {
+            "total": 1,
+            "page": 1,
+            "limit": 20
+          }
+        }
+      }
+    },
+    {
+      "operation": "Update",
+      "request": {
+        "method": "PUT",
+        "url": "/products/prod_abc123",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "Premium Wireless Headphones",
+          "price": 99.99,
+          "category": "Electronics",
+          "sku": "WH-001"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "prod_abc123",
+          "name": "Premium Wireless Headphones",
+          "price": 99.99,
+          "updatedAt": "2026-05-02T11:00:00Z"
+        }
+      }
+    },
+    {
+      "operation": "Delete",
+      "request": {
+        "method": "DELETE",
+        "url": "/products/prod_abc123",
+        "headers": {
+          "Authorization": "Bearer {{token}}"
+        }
+      },
+      "response": {
+        "status": 204,
+        "body": null
+      }
+    }
+  ]
+}

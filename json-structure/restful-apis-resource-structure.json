@@ -1,0 +1,59 @@
+{
+  "name": "RESTful Resource",
+  "description": "Structure documentation for a standard RESTful API resource representation",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string|integer",
+      "required": true,
+      "description": "Unique resource identifier"
+    },
+    {
+      "name": "href",
+      "type": "string (uri)",
+      "required": false,
+      "description": "Self-referencing URI (HATEOAS link)"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "required": true,
+      "description": "Resource type name"
+    },
+    {
+      "name": "attributes",
+      "type": "object",
+      "required": false,
+      "description": "Resource-specific data attributes"
+    },
+    {
+      "name": "relationships",
+      "type": "object",
+      "required": false,
+      "description": "Links to related resources"
+    },
+    {
+      "name": "meta",
+      "type": "object",
+      "required": false,
+      "description": "Metadata (timestamps, version)",
+      "fields": [
+        {
+          "name": "createdAt",
+          "type": "string (date-time)",
+          "required": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string (date-time)",
+          "required": false
+        },
+        {
+          "name": "version",
+          "type": "integer",
+          "required": false
+        }
+      ]
+    }
+  ]
+}
