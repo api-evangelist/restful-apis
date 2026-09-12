@@ -1,4 +1,5 @@
 aid: restful-apis
+x-type: concept
 deliveryModel:
   model: unknown
   open_source: false
